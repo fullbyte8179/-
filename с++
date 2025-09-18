@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+
+int main() {
+    // Массив (вектор) строк
+    std::vector<std::string> fruits = {"apple", "banana", "cherry"};
+    
+    // Стек целых чисел
+    std::stack<int> numbers;
+    
+    // Заполняем стек
+    for(int i = 1; i <= 5; i++) {
+        numbers.push(i);
+        std::cout << "Добавлено в стек: " << i << std::endl;
+    }
+    
+    // Выводим массив
+    std::cout << "\nМассив фруктов: ";
+    for(const auto& fruit : fruits) {
+        std::cout << fruit << " ";
+    }
+    
+    // Работа со стеком
+    std::cout << "\n\nВерхний элемент стека: " << numbers.top();
+    numbers.pop();
+    std::cout << "\nРазмер стека после удаления: " << numbers.size() << std::endl;
+    
+    return 0;
+}
