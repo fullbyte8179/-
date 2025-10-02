@@ -1,0 +1,15 @@
+#include <unordered_map>
+#include <iostream>
+
+
+int main() {
+std::unordered_map<int, std::string> hashTable;
+hashTable.insert({1, "apple"});
+hashTable.insert({2, "banana"});
+
+
+for (const auto& pair : hashTable) {
+std::cout << pair.first << ": " << pair.second << std::endl;
+}
+return 0;
+}
