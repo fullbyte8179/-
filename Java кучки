@@ -1,0 +1,15 @@
+import java.util.HashMap;
+
+
+public class Main {
+public static void main(String[] args) {
+HashMap<Integer, String> hashTable = new HashMap<>();
+hashTable.put(1, "apple");
+hashTable.put(2, "banana");
+
+
+for (Integer key : hashTable.keySet()) {
+System.out.println(key + ": " + hashTable.get(key));
+}
+}
+}
