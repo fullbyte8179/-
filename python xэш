@@ -1,0 +1,6 @@
+hash_table = {}
+hash_table.update({1: "apple", 2: "banana"})
+
+
+for key, value in hash_table.items():
+print(f"{key}: {value}")
