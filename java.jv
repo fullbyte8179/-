@@ -1,0 +1,235 @@
+// Пункт 1: Сортировка выбором (Selection Sort)
+import java.util.Scanner;
+
+public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите количество элементов: ");
+        int n = scanner.nextInt();
+        int[] testArray = new int[n];
+        
+        System.out.println("Введите элементы массива:");
+        for (int i = 0; i < n; i++) {
+            testArray[i] = scanner.nextInt();
+        }
+        
+        System.out.print("Исходный массив: ");
+        for (int num : testArray) {
+            System.out.print(num + " ");
+        }
+        
+        selectionSort(testArray);
+        
+        System.out.print("\nОтсортированный массив: ");
+        for (int num : testArray) {
+            System.out.print(num + " ");
+        }
+        
+        scanner.close();
+    }
+}
+
+// Пункт 4: Сортировка слиянием (Merge Sort)
+import java.util.Scanner;
+
+public class MergeSort {
+    public static void mergeSort(int[] arr) {
+        if (arr.length < 2) return;
+        
+        int mid = arr.length / 2;
+        int[] left = new int[mid];
+        int[] right = new int[arr.length - mid];
+        
+        System.arraycopy(arr, 0, left, 0, mid);
+        System.arraycopy(arr, mid, right, 0, arr.length - mid);
+        
+        mergeSort(left);
+        mergeSort(right);
+        merge(arr, left, right);
+    }
+    
+    private static void merge(int[] arr, int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+        
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+            }
+        }
+        
+        while (i < left.length) {
+            arr[k++] = left[i++];
+        }
+        
+        while (j < right.length) {
+            arr[k++] = right[j++];
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите количество элементов: ");
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        
+        System.out.println("Введите элементы массива:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+        
+        System.out.print("Исходный массив: ");
+        for (int num : array) System.out.print(num + " ");
+        
+        mergeSort(array);
+        
+        System.out.print("\nОтсортированный массив: ");
+        for (int num : array) System.out.print(num + " ");
+        
+        scanner.close();
+    }
+}
+
+// Пункт 7: Пирамидальная сортировка (Heap Sort)
+import java.util.Scanner;
+
+public class HeapSort {
+    public static void heapSort(int[] arr) {
+        int n = arr.length;
+        
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+        
+        for (int i = n - 1; i > 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+            
+            heapify(arr, i, 0);
+        }
+    }
+    
+    private static void heapify(int[] arr, int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        
+        if (left < n && arr[left] > arr[largest]) {
+            largest = left;
+        }
+        
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
+        }
+        
+        if (largest != i) {
+            int temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
+            
+            heapify(arr, n, largest);
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите количество элементов: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        System.out.println("Введите элементы массива:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        System.out.print("Исходный массив: ");
+        for (int num : arr) System.out.print(num + " ");
+        
+        heapSort(arr);
+        
+        System.out.print("\nОтсортированный массив: ");
+        for (int num : arr) System.out.print(num + " ");
+        
+        scanner.close();
+    }
+}
+
+// Пункт 10: Интерполяционный поиск (Interpolation Search)
+import java.util.Scanner;
+
+public class InterpolationSearch {
+    public static int interpolationSearch(int[] arr, int target) {
+        int low = 0;
+        int high = arr.length - 1;
+        
+        while (low <= high && target >= arr[low] && target <= arr[high]) {
+            if (low == high) {
+                if (arr[low] == target) return low;
+                return -1;
+            }
+            
+            int pos = low + (((high - low) * (target - arr[low])) / (arr[high] - arr[low]));
+            
+            if (arr[pos] == target) {
+                return pos;
+            }
+            
+            if (arr[pos] < target) {
+                low = pos + 1;
+            } else {
+                high = pos - 1;
+            }
+        }
+        
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Введите количество элементов: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        System.out.println("Введите отсортированные элементы массива:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        System.out.print("Введите элемент для поиска: ");
+        int target = scanner.nextInt();
+        
+        int result = interpolationSearch(arr, target);
+        
+        if (result != -1) {
+            System.out.println("Элемент найден на позиции: " + result);
+        } else {
+            System.out.println("Элемент не найден");
+        }
+        
+        scanner.close();
+    }
+}
