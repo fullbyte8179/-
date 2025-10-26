@@ -1,4 +1,8 @@
 // Пункт 3: Сортировка вставками (Insertion Sort)
+// Ввод: 5
+// 12 11 13 5 6
+// Вывод: 5 6 11 12 13
+
 #include <iostream>
 #include <vector>
 
@@ -42,6 +46,11 @@ int main() {
 }
 
 // Пункт 9: Бинарный поиск (Binary Search)
+// Ввод: 10
+// 1 3 5 7 9 11 13 15 17 19
+// 7
+// Вывод: Элемент найден на позиции: 3
+
 #include <iostream>
 #include <vector>
 
