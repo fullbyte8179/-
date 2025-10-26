@@ -1,4 +1,8 @@
 # Пункт 2: Сортировка обменом (пузырьком) - Bubble Sort
+# Ввод: 7
+# 64 34 25 12 22 11 90
+# Вывод: 11 12 22 25 34 64 90
+
 def bubble_sort(arr):
     n = len(arr)
     
@@ -22,6 +26,10 @@ if __name__ == "__main__":
     print("Отсортированный массив:", arr)
 
 # Пункт 5: Сортировка Шелла (Shell Sort)
+# Ввод: 5
+# 12 34 54 2 3
+# Вывод: 2 3 12 34 54
+
 def shell_sort(arr):
     n = len(arr)
     gap = n // 2
@@ -53,6 +61,10 @@ if __name__ == "__main__":
     print("Отсортированный массив:", arr)
 
 # Пункт 6: Быстрая сортировка (Quick Sort)
+# Ввод: 6
+# 10 7 8 9 1 5
+# Вывод: 1 5 7 8 9 10
+
 def quick_sort(arr):
     if len(arr) <= 1:
         return arr
@@ -77,7 +89,13 @@ if __name__ == "__main__":
     sorted_array = quick_sort(arr)
     
     print("Отсортированный массив:", sorted_array)
+    
 # Пункт 8: Последовательный (линейный) поиск (Linear Search)
+# Ввод: 7
+# 3 5 2 7 9 1 4
+# 7
+# Вывод: Элемент найден на позиции: 3
+
 def linear_search(arr, target):
     for i in range(len(arr)):
         if arr[i] == target:
@@ -103,6 +121,11 @@ if __name__ == "__main__":
 
 
 # Пункт 11: Поиск Фибоначчи (Fibonacci Search)
+# Ввод: 11
+# 10 22 35 40 45 50 80 82 85 90 100
+# 85
+# Вывод: Элемент найден на позиции: 8
+
 def fibonacci_search(arr, target):
     n = len(arr)
     
