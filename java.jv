@@ -1,4 +1,8 @@
 // Пункт 1: Сортировка выбором (Selection Sort)
+// Ввод: 5
+// 64 25 12 22 11
+// Вывод: 11 12 22 25 64
+
 import java.util.Scanner;
 
 public class SelectionSort {
@@ -49,6 +53,10 @@ public class SelectionSort {
 }
 
 // Пункт 4: Сортировка слиянием (Merge Sort)
+// Ввод: 7
+// 38 27 43 3 9 82 10
+// Вывод: 3 9 10 27 38 43 82
+
 import java.util.Scanner;
 
 public class MergeSort {
@@ -112,6 +120,10 @@ public class MergeSort {
 }
 
 // Пункт 7: Пирамидальная сортировка (Heap Sort)
+// Ввод: 6
+// 12 11 13 5 6 7
+// Вывод: 5 6 7 11 12 13
+
 import java.util.Scanner;
 
 public class HeapSort {
@@ -176,8 +188,12 @@ public class HeapSort {
         scanner.close();
     }
 }
-
 // Пункт 10: Интерполяционный поиск (Interpolation Search)
+// Ввод: 15
+// 10 12 13 16 18 19 20 21 22 23 24 33 35 42 47
+// 18
+// Вывод: Элемент найден на позиции: 4
+
 import java.util.Scanner;
 
 public class InterpolationSearch {
