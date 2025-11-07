@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Permutations {
+
+    // Рекурсивная функция для генерации перестановок
+    public static void generatePermutations(char[] arr, int index, List<String> result) {
+        // Базовый случай: достигнут конец массива
+        if (index == arr.length) {
+            result.add(new String(arr));
+            return;
+        }
+
+        // Рекурсивный случай: перебираем все возможные символы для текущей позиции
+        for (int i = index; i < arr.length; i++) {
+            // Шаг вперед: Обмен элементов
+            swap(arr, index, i);
+
+            // Рекурсивный вызов для следующей позиции
+            generatePermutations(arr, index + 1, result);
+
+            // Откат изменений (backtrack)
+            swap(arr, index, i);
+        }
+    }
+
+    private static void swap(char[] arr, int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        String inputStr = "ABC";
+        List<String> result = new ArrayList<>();
+        
+        System.out.println("Исходная строка: " + inputStr);
+        System.out.println("Все перестановки:");
+        
+        generatePermutations(inputStr.toCharArray(), 0, result);
+        
+        for (String perm : result) {
+            System.out.println(perm);
+        }
+    }
+}
